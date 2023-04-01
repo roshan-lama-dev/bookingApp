@@ -1,6 +1,7 @@
 @import "../../global.scss";
 .listContainer {
   display: flex;
+  z-index: 0;
   justify-content: center;
   margin-top: 20px;
 
@@ -104,6 +105,30 @@
             // top: 0px;
           }
         }
+      }
+      .listItem3 {
+        // margin-top: 1px;
+
+        background: white;
+        padding: 10px;
+        cursor: pointer;
+        position: relative;
+        // top: 10px;
+        .quantitySelector {
+          top: -10px;
+
+          left: -2px;
+          position: absolute;
+        }
+      }
+
+      .serchbtn {
+        padding: 15px;
+        border-radius: 5px;
+        color: white;
+        font-weight: 500;
+        border: none;
+        background: $navcolor;
       }
     }
     .listResult {

@@ -9,6 +9,7 @@ import { DateRange, DateRangePicker } from "react-date-range";
 import { useLocation } from "react-router-dom";
 import { Header } from "../../components/header/Header";
 import { Navbar } from "../../components/navbar/Navbar";
+import { Quantity } from "../../components/quantity/Quantity";
 
 import "./list.scss";
 
@@ -23,6 +24,9 @@ export const List = () => {
   // useState for the open date Range
   const [openDate, setOpenDate] = useState(false);
   const [openDate2, setOpenDate2] = useState(false);
+
+  // usestate for showing quantity selector
+  const [showQuantity, setShowQuantity] = useState(false);
   console.log(location);
   return (
     <div>
@@ -47,14 +51,12 @@ export const List = () => {
               <label htmlFor="">CheckIn</label>
               <div className="test">
                 <div onClick={() => setOpenDate(!openDate)} className="span">
-                  {`${format(date[0].startDate, "mm/dd/yyyy")} to ${format(
-                    date[0].endDate,
-                    "mm/dd/yyyy"
-                  )} `}
+                  {`${format(date[0].startDate, "mm/dd/yyyy")}  `}
                 </div>
                 {openDate && (
                   <DateRange
-                    setDate={date}
+                    onChange={(item) => setDate([item.selection])}
+                    ranges={date}
                     minDate={new Date()}
                     className="dateR"
                   />
@@ -64,13 +66,10 @@ export const List = () => {
             </div>
 
             <div className="listItem2">
-              <label htmlFor="">CheckIn</label>
+              <label htmlFor="">CheckOut</label>
               <div className="test2">
                 <div onClick={() => setOpenDate2(!openDate2)} className="span2">
-                  {`${format(date[0].startDate, "mm/dd/yyyy")} to ${format(
-                    date[0].endDate,
-                    "mm/dd/yyyy"
-                  )} `}
+                  {` ${format(date[0].endDate, "mm/dd/yyyy")} `}
                 </div>
                 {openDate2 && (
                   <DateRange
@@ -83,7 +82,17 @@ export const List = () => {
               </div>
             </div>
 
-            <div className="quantity">Children . {option.children}</div>
+            <div
+              onClick={() => setShowQuantity(!showQuantity)}
+              className="listItem3"
+            >
+              {` ${option.adult} adults. ${option.children} children. ${option.room} room`}
+              <div className="quantitySelector">
+                {showQuantity && <Quantity />}
+              </div>
+            </div>
+
+            <button className="serchbtn">Search</button>
           </div>
           <div className="listResult">he</div>
         </div>
