@@ -20,46 +20,90 @@
       flex-direction: column;
       gap: 10px;
 
-      .lstitle {
-        background-color: none;
+      .listItem {
+        .inputField {
+          width: 250px;
+          height: 35px;
+          // position: relative;
+          // display: flex;
+          // flex-direction: row;
+          // padding-left: 15px;
+          padding: 10px 10px 10px 30px;
+          border: none;
+          outline: none;
+          border-radius: 2px;
+        }
+        .inputField:focus {
+          border: 1px solid blueviolet;
+        }
+
+        .icon {
+          position: absolute;
+          color: gray;
+          padding: 10px;
+          //   left: 0;
+          left: 10px;
+        }
       }
-      .inputField {
-        width: 250px;
-        height: 35px;
-        position: relative;
-        // display: flex;
-        // flex-direction: row;
-        // padding-left: 15px;
-        padding: 10px 10px 10px 30px;
-        border: none;
-        outline: none;
-        border-radius: 2px;
+      .listItem1 {
+        .test {
+          .span {
+            // display: block;
+            background: white;
+            padding: 10px;
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+          }
+          .dateR {
+            position: absolute;
+            top: 182px;
+            left: 10px;
+            box-shadow: -1px -1px 10px 1px gray;
+            border-radius: 5px;
+          }
+          .icont {
+            position: absolute;
+            color: gray;
+            top: 153px;
+            left: 20px;
+            // top: 0;
+            // :-100px ;
+            // padding: 10px;
+            //   left: 0;
+            // top: 0px;
+          }
+        }
       }
-      .inputField:focus {
-        border: 1px solid blueviolet;
-      }
-      .icon {
-        position: absolute;
-        color: gray;
-        padding: 10px;
-        //   left: 0;
-        left: 10px;
-      }
-      .iconC {
-        position: absolute;
-        left: 0px;
-        top: 0px;
-        display: none;
-      }
-      .inputFields {
-        height: 35px;
-        display: flex;
-        width: 250px;
-        padding: 10px;
-        background-color: white;
-        align-items: center;
-        position: relative;
-        cursor: pointer;
+      .listItem2 {
+        .test2 {
+          .span2 {
+            // display: block;
+            background: white;
+            padding: 10px;
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer;
+          }
+          .dateR2 {
+            position: absolute;
+            top: 250px;
+            left: 10px;
+            box-shadow: -1px -1px 10px 1px gray;
+            border-radius: 5px;
+          }
+          .icont2 {
+            position: absolute;
+            color: gray;
+            top: 220px;
+            left: 20px;
+            // top: 0;
+            // :-100px ;
+            // padding: 10px;
+            //   left: 0;
+            // top: 0px;
+          }
+        }
       }
     }
     .listResult {
