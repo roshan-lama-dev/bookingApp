@@ -3,6 +3,7 @@
   display: flex;
   z-index: 0;
   justify-content: center;
+  // position: relative;
   margin-top: 20px;
 
   .listWrapper {
@@ -14,12 +15,14 @@
       flex: 1;
       background-color: #febb02;
       position: sticky;
+      top: 10px;
       border-radius: 5px;
       padding: 10px;
       margin-top: 10px;
       display: flex;
       flex-direction: column;
       gap: 10px;
+      height: max-content;
 
       .listItem {
         .inputField {
