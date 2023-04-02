@@ -14,6 +14,7 @@ import "react-date-range/dist/styles.css"; // main css file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import { Quantity } from "../quantity/Quantity";
 export const Header = ({ type }) => {
   // useState for the select date component
   const naigate = useNavigate();
@@ -125,6 +126,7 @@ export const Header = ({ type }) => {
                     moveRangeOnFirstSelection={false}
                     ranges={date}
                     className="date"
+                    minDate={new Date()}
                   />
                 )}
               </div>
@@ -135,84 +137,7 @@ export const Header = ({ type }) => {
                   className="headerSearchText"
                 >{`${option.adult} adult. ${option.children} children. ${option.room} room`}</span>
 
-                {openOption && (
-                  <div className="optionItem">
-                    <div className="optionContainer">
-                      <div className="adultItem">
-                        <div className="text">
-                          <p>Adults</p>
-                        </div>
-                        <div className="coutner">
-                          <button
-                            disabled={option.adult <= 1}
-                            onClick={() => handleOption("adult", "d")}
-                            className="counterBtn"
-                          >
-                            -
-                          </button>
-
-                          <div className="counterText">{`${option.adult}`}</div>
-                          <button
-                            onClick={() => handleOption("adult", "i")}
-                            className="counterBtn"
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                      <div className="adultItem">
-                        <div className="text">
-                          <p>Children</p>
-                        </div>
-                        <div className="coutner">
-                          <button
-                            disabled={option.children <= 0}
-                            className="counterBtn"
-                            onClick={() => handleOption("children", "d")}
-                          >
-                            -
-                          </button>
-
-                          <div className="counterText">{`${option.children}`}</div>
-                          <button
-                            className="counterBtn"
-                            onClick={() => handleOption("children", "i")}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                      <div className="adultItem">
-                        <div className="text">
-                          <p>Rooms</p>
-                        </div>
-                        <div className="coutner">
-                          <button
-                            disabled={option.room <= 0}
-                            className="counterBtn"
-                            onClick={() => handleOption("room", "d")}
-                          >
-                            -
-                          </button>
-
-                          <div className="counterText">{option.room}</div>
-                          <button
-                            className="counterBtn"
-                            onClick={() => handleOption("room", "i")}
-                          >
-                            +
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => setOpenOption(!openOption)}
-                      className="doneBtn"
-                    >
-                      Done
-                    </button>
-                  </div>
-                )}
+                {openOption && <Quantity showOption={openOption} />}
               </div>
 
               <div className="headerSearchItem">
